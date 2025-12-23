@@ -1,2 +1,3 @@
-model_path: models/yolov11/yolov11n.pt
+model_path: models/yolov11/yolo11x.pt
 conf_threshold: 0.4
+  

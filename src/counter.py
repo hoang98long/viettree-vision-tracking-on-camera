@@ -3,7 +3,7 @@ class LineCounter:
         self.line_y = line_y
         self.class_map = class_map
         self.counted_ids = set()
-        self.counts = {k:0 for k in class_map}
+        self.counts = {name: 0 for name in class_map.values()}
 
     def update(self, tracks):
         for t in tracks:
