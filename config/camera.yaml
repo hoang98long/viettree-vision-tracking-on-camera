@@ -1,0 +1,9 @@
+#type: usb        # usb | rtsp | video
+#source: 0        # usb cam index OR rtsp url OR video path
+#width: 1280
+#height: 720
+
+type: video
+source: assets/traffic.mp4
+width: 1280
+height: 720

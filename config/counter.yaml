@@ -1,0 +1,7 @@
+line_y: 380
+
+classes:
+  car: 2
+  motorbike: 3
+  bus: 5
+  truck: 7
