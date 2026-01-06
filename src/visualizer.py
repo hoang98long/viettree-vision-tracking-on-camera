@@ -11,9 +11,9 @@ def draw(frame, tracks, counts, line_y):
                     (x1,y1-5),
                     cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,0,0),1)
 
-    y = 30
+    y = 80
     for k,v in counts.items():
         cv2.putText(frame,f"{k}: {v}",
                     (20,y),
-                    cv2.FONT_HERSHEY_SIMPLEX,0.8,(0,255,255),2)
+                    cv2.FONT_HERSHEY_SIMPLEX,1.2,(0,255,255),2)
         y += 30

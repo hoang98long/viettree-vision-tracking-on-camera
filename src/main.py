@@ -21,6 +21,25 @@ tracker = SimpleTracker()
 counter = LineCounter(counter_cfg["line_y"], class_map)
 fps = FPS()
 
+# =========================
+# 🔥 NEW: VIDEO WRITER
+# =========================
+video_writer = None
+if sys_cfg.get("save_video", False):
+    width  = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    fps_out = sys_cfg.get("output_fps", 25)
+
+    fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+    video_writer = cv2.VideoWriter(
+        sys_cfg["output_video"],
+        fourcc,
+        fps_out,
+        (width, height)
+    )
+
+# =========================
+
 while True:
     ret, frame = cap.read()
     if not ret:
@@ -39,12 +58,21 @@ while True:
     draw(frame, tracks, counter.counts, counter_cfg["line_y"])
     fps.update()
 
+    # 🔥 NEW: WRITE FRAME
+    if video_writer is not None:
+        video_writer.write(frame)
+
     if sys_cfg["show_window"]:
         cv2.imshow("Vision Counter", frame)
         if cv2.waitKey(1) == 27:
             break
 
 cap.release()
+
+# 🔥 NEW: RELEASE VIDEO
+if video_writer is not None:
+    video_writer.release()
+
 cv2.destroyAllWindows()
 
 with open("output/counts.json","w") as f:

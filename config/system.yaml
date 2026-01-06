@@ -1,3 +1,5 @@
 device: cuda
 show_window: true
-log_interval: 50
+save_video: true
+output_video: output/tracking_result.mp4
+output_fps: 25
