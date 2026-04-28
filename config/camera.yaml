@@ -4,6 +4,6 @@
 #height: 720
 
 type: video
-source: assets/traffic.mp4
-width: 1280
-height: 720
+source: assets/apple.mp4
+width: 640
+height: 640

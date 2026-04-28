@@ -1,5 +1,5 @@
 device: cuda
 show_window: true
 save_video: true
-output_video: output/tracking_result.mp4
+output_video: output/apple.mp4
 output_fps: 25
